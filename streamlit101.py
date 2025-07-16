@@ -11,7 +11,7 @@ st.markdown("<h1 style='text-align:center;'>CAD File Uploader Examplepage</h1>",
 
 uploaded_file = st.file_uploader("Upload a file", type=["json"], accept_multiple_files=True)
 if uploaded_file:
-    st.success(f"Uploaded: {uploaded_file.name}")
+    st.success(f"Uploaded: {uploaded_file}")
     # แสดงข้อมูลของไฟล์ที่อัปโหลด
     file_content = uploaded_file.read()
     st.text(file_content.decode("utf-8"))  # แสดงเนื้อหาไฟ
