@@ -1,26 +1,15 @@
 import streamlit as st
 
-# ตั้งค่าเพจ (ต้องอยู่บรรทัดแรกสุด)
+# ต้องอยู่บนสุดสุด ก่อนคำสั่ง Streamlit อื่นๆ
 st.set_page_config(
     page_title="CAD File Uploader Example",
-    page_icon=":rocket:",
+    page_icon="🚀",  # ใช้ Unicode แทน :rocket:
     layout="wide"
 )
 
-# ใช้ HTML ทำให้ Title อยู่กลาง
-st.markdown(
-    """
-    <h1 style='text-align: center;'>
-        CAD File Uploader Examplepage
-    </h1>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("<h1 style='text-align:center;'>CAD File Uploader Examplepage</h1>", unsafe_allow_html=True)
 
-st.write("Import file uploader")
-
-# อัปโหลดไฟล์ json
 uploaded_file = st.file_uploader("Upload a file", type=["json"])
-
 if uploaded_file:
-    st.success(f"คุณอัปโหลดไฟล์: {uploaded_file.name}")
+    st.success(f"Uploaded: {uploaded_file.name}")
+    # แสดงข้อมูลของไฟล์ที่อัปโหลด
