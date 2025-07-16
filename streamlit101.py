@@ -9,7 +9,7 @@ st.set_page_config(
 
 st.markdown("<h1 style='text-align:center;'>CAD File Uploader Examplepage</h1>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("Upload a file", type=["json"], accept_multiple_files=True)
+uploaded_file = st.file_uploader("Upload a file", type=["json"])
 if uploaded_file:
     st.success(f"Uploaded: {uploaded_file}")
     # แสดงข้อมูลของไฟล์ที่อัปโหลด
