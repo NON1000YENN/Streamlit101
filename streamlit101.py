@@ -19,12 +19,6 @@ df = pd.read_csv("mock_sales_data.csv")
 st.subheader("Example of DataFrame")
 st.dataframe(df.head(10), use_container_width=True)
 
-#count each product sell each month
-st.subheader("Product Sales Count by Region")
-product_sales = df.groupby(['Product', 'Date']).size().reset_index(name='Count')
-
-# Show a bar chart of product sales
-st.subheader("Product Sales Bar Chart")
-st.bar_chart(product_sales.set_index('Date')['Count'].groupby(product_sales['Product']).sum())
-
-    
+# Show a line chart of sales over time
+st.subheader("Sales Over Time")
+st.line_chart(df.set_index('date')['sales'], use_container_width=True)
