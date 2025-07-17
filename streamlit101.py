@@ -19,6 +19,13 @@ df = pd.read_csv("mock_sales_data.csv")
 st.subheader("Example of DataFrame")
 st.dataframe(df.head(10), use_container_width=True)
 
-#
+#count each product sell each month
+st.subheader("Product Sales Count by Month")
+product_sales = df.groupby(['Product', 'Month']).size().reset_index(name='Count')
+st.dataframe(product_sales, use_container_width=True)
+
+# Show a bar chart of product sales
+st.subheader("Product Sales Bar Chart")
+st.bar_chart(product_sales.set_index('Month')['Count'].groupby(product_sales['Product']).sum())
 
     
