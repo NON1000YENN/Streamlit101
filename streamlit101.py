@@ -4,7 +4,7 @@ import pandas as pd
 
 # page_config must me ON THE TOP OF FILE
 st.set_page_config(
-    page_title="CAD File Uploader Example",
+    page_title="Streamit 101",
     page_icon="🚀",  # ใช้ Unicode แทน :rocket:
     layout="wide"
 )
@@ -17,7 +17,8 @@ df = pd.read_csv("mock_sales_data.csv")
 
 #Show example of dataframe
 st.subheader("Example of DataFrame")
-st.dataframe(df)
+st.dataframe(df.head(10), use_container_width=True)
 
 #
+
     
