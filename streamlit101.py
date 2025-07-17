@@ -1,17 +1,23 @@
 import streamlit as st
+import pandas as pd
 
-# ต้องอยู่บนสุดสุด ก่อนคำสั่ง Streamlit อื่นๆ
+
+# page_config must me ON THE TOP OF FILE
 st.set_page_config(
     page_title="CAD File Uploader Example",
     page_icon="🚀",  # ใช้ Unicode แทน :rocket:
     layout="wide"
 )
 
+
 st.markdown("<h1 style='text-align:center;'>CAD File Uploader Examplepage</h1>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("Upload a file", type=["json"])
-if uploaded_file:
-    st.success(f"Uploaded: {uploaded_file}")
-    # แสดงข้อมูลของไฟล์ที่อัปโหลด
-    file_content = uploaded_file.read()
-    st.text(file_content.decode("utf-8"))  # แสดงเนื้อหาไฟ
+#Load Mock Data
+df = pd.read_csv("mock_sales_data.csv")
+
+#Show example of dataframe
+st.subheader("Example of DataFrame")
+st.dataframe(df)
+
+#
+    
