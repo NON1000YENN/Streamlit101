@@ -19,6 +19,13 @@ df = pd.read_csv("mock_sales_data.csv")
 st.subheader("Example of DataFrame")
 st.dataframe(df.head(10), use_container_width=True)
 
-# Show a line chart of sales over time
-st.subheader("Sales Over Time")
-st.line_chart(df.set_index('date')['sales'], use_container_width=True)
+# Convert 'Date' to datetime
+df["Date"] = pd.to_datetime(df["Date"])
+df["Month"] = df["Date"].dt.strftime('%Y-%m')  # Format: YYYY-MM
+
+# Group by Month and Product, then sum Sales
+monthly_sales = df.groupby(["Month", "Product"])["Sales"].sum().unstack().fillna(0)
+
+# Plot
+st.title("Monthly Product Sales")
+st.bar_chart(monthly_sales)
